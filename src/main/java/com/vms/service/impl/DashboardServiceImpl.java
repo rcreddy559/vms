@@ -39,17 +39,17 @@ public class DashboardServiceImpl implements DashboardService {
         Map<String, Double> donationMap = allDonations.stream()
                 .collect(Collectors.groupingBy(
                         d -> d.getEvent().getName(),
-                        Collectors.summingDouble(d -> d.getAmount().doubleValue())));
+                        Collectors.summingDouble(d -> d.getAmount())));
 
         for (Map.Entry<String, Double> e : donationMap.entrySet()) {
             System.out.println("Key: " + e.getKey());
             System.out.println("Value: " + e.getValue());
         }
-        return Dashboard.builder()
-                .upcomingEvents(eventRepo.findAll())
-                .donationsByEvent(donationMap)
-                .residentsCount(residentRepo.count())
-                .eventsCount(eventRepo.count())
-                .build();
+
+        var dashboard = new Dashboard();
+        dashboard.setCurrentEvent(null);
+        dashboard.setEventsCount(20);
+        dashboard.setResidentsCount(200);
+        return dashboard;
     }
 }

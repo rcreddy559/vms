@@ -1,6 +1,5 @@
 package com.vms.controller;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import com.vms.model.Donation;
@@ -9,7 +8,7 @@ import com.vms.service.DonationService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/donations")
+@RequestMapping("/vms/api/v1/donations")
 public class DonationController {
 
     private final DonationService donationService;

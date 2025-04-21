@@ -8,7 +8,7 @@ import com.vms.service.ResidentService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/residents")
+@RequestMapping("/vms/api/v1/resident")
 public class ResidentController {
 
     public ResidentController(ResidentService residentService) {

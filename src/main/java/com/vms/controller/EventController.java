@@ -8,7 +8,7 @@ import com.vms.service.EventService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/events")
+@RequestMapping("/vms/api/v1/events")
 public class EventController {
 
     private final EventService eventService;

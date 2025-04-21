@@ -1,17 +1,8 @@
 package com.vms.model;
 
 import jakarta.persistence.*;
-import lombok.*;
-import java.math.BigDecimal;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +16,7 @@ public class Donation {
     @JoinColumn(name = "event_id")
     private Event event;
 
-    private BigDecimal amount;
+    private double amount;
 
     @Enumerated(EnumType.STRING)
     private DonationStatus status;
@@ -33,4 +24,65 @@ public class Donation {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_by_id")
     private Resident createdBy;
+
+    public Donation(double amount, Resident createdBy, Event event, Long id, Resident resident, DonationStatus status) {
+        this.amount = amount;
+        this.createdBy = createdBy;
+        this.event = event;
+        this.id = id;
+        this.resident = resident;
+        this.status = status;
+    }
+
+    public Donation() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Resident getResident() {
+        return resident;
+    }
+
+    public void setResident(Resident resident) {
+        this.resident = resident;
+    }
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public DonationStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(DonationStatus status) {
+        this.status = status;
+    }
+
+    public Resident getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(Resident createdBy) {
+        this.createdBy = createdBy;
+    }
+
 }
