@@ -1,0 +1,45 @@
+package com.vms.controller;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+import com.vms.model.Donation;
+import com.vms.service.DonationService;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/donations")
+public class DonationController {
+
+    private final DonationService donationService;
+
+    public DonationController(DonationService donationService) {
+        this.donationService = donationService;
+    }
+
+    @GetMapping
+    public List<Donation> getAllDonations() {
+        return donationService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Donation getDonationById(@PathVariable Long id) {
+        return donationService.getById(id);
+    }
+
+    @PostMapping
+    public Donation createDonation(@RequestBody Donation donation) {
+        return donationService.create(donation);
+    }
+
+    @PutMapping("/{id}")
+    public Donation updateDonation(@PathVariable Long id, @RequestBody Donation donation) {
+        return donationService.update(id, donation);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteDonation(@PathVariable Long id) {
+        donationService.delete(id);
+    }
+}
