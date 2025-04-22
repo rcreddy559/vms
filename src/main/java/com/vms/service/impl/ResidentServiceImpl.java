@@ -1,6 +1,5 @@
 package com.vms.service.impl;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +7,10 @@ import com.vms.model.Resident;
 import com.vms.repository.ResidentRepository;
 import com.vms.service.ResidentService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class ResidentServiceImpl implements ResidentService {
@@ -49,5 +51,19 @@ public class ResidentServiceImpl implements ResidentService {
     @Override
     public void delete(Long id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    public Map<String, List<Resident>> getByRole() {
+        List<Resident> residentList = repository.findAll();
+        return residentList.stream()
+                .collect(Collectors.groupingBy(e -> e.getRole(), Collectors.toList()));
+    }
+
+    @Override
+    public Map<String, List<Resident>> getByRole(String role) {
+        Map<String, List<Resident>> byRole = new HashMap<>();
+        byRole.put(role, repository.findByRole(role));
+        return byRole;
     }
 }
