@@ -40,12 +40,16 @@ public class EventServiceImpl implements EventService {
         event.setName(updated.getName());
         event.setLocation(updated.getLocation());
         event.setDate(updated.getDate());
-        event.setOrganizer(updated.getOrganizer());
         return repository.save(event);
     }
 
     @Override
     public void delete(Long id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    public Event partialUpdate(Long id, Event event) {
+        return  event;
     }
 }

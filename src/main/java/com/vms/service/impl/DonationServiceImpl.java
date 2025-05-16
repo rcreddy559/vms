@@ -1,7 +1,9 @@
 package com.vms.service.impl;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import com.vms.dto.DonationDto;
 import com.vms.model.Donation;
 import com.vms.repository.DonationRepository;
 import com.vms.service.DonationService;
@@ -12,14 +14,18 @@ import java.util.List;
 public class DonationServiceImpl implements DonationService {
 
     private final DonationRepository repository;
+    private final  ModelMapper modelMapper;
 
-    public DonationServiceImpl(DonationRepository repository) {
+    public DonationServiceImpl(DonationRepository repository,  ModelMapper modelMapper) {
+        this.modelMapper = modelMapper;
         this.repository = repository;
     }
 
     @Override
-    public List<Donation> getAll() {
-        return repository.findAll();
+    public List<DonationDto> getAll() {
+        var donations = repository.findAll();
+        var  dtos  = donations.stream().map(d-> modelMapper.map(d, DonationDto.class)).toList();
+        return dtos;
     }
 
     @Override
@@ -37,7 +43,6 @@ public class DonationServiceImpl implements DonationService {
         Donation donation = getById(id);
         donation.setAmount(updated.getAmount());
         donation.setStatus(updated.getStatus());
-        donation.setEvent(updated.getEvent());
         donation.setResident(updated.getResident());
         return repository.save(donation);
     }

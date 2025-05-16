@@ -1,29 +1,19 @@
-package com.vms.model;
+package com.vms.dto;
 
-import jakarta.persistence.*;
+import com.vms.model.DonationStatus;
+import com.vms.model.Event;
+import com.vms.model.Resident;
 
-@Entity
-public class Donation {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class DonationDto {
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "resident_id")
     private Resident resident;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "event_id")
-    private Event event;
 
     private double amount;
 
-    @Enumerated(EnumType.STRING)
     private DonationStatus status;
+    private Event event;
 
-
-    public Donation() {
-    }
 
     public Long getId() {
         return id;

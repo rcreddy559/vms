@@ -14,4 +14,6 @@ public interface EventService {
     Event update(Long id, Event event);
 
     void delete(Long id);
+
+    Event partialUpdate(Long id, Event event);
 }

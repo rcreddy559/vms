@@ -2,7 +2,6 @@ package com.vms.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 public class Event {
@@ -15,22 +14,6 @@ public class Event {
     private String location;
 
     private LocalDate date;
-
-    @ManyToOne
-    @JoinColumn(name = "organizer_id")
-    private Resident organizer;
-
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Donation> donations;
-
-    public Event(LocalDate date, List<Donation> donations, Long id, String location, String name, Resident organizer) {
-        this.date = date;
-        this.donations = donations;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.organizer = organizer;
-    }
 
     public Event() {
     }
@@ -67,22 +50,5 @@ public class Event {
     public void setDate(LocalDate date) {
         this.date = date;
     }
-
-    public Resident getOrganizer() {
-        return organizer;
-    }
-
-    public void setOrganizer(Resident organizer) {
-        this.organizer = organizer;
-    }
-
-    public List<Donation> getDonations() {
-        return donations;
-    }
-
-    public void setDonations(List<Donation> donations) {
-        this.donations = donations;
-    }
-
     
 }

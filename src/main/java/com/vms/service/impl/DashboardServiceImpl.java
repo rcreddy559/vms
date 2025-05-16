@@ -30,19 +30,6 @@ public class DashboardServiceImpl implements DashboardService {
     @Override
     @Cacheable("dashboard")
     public Dashboard getDashboardData() {
-
-        // Group donations by event
-        List<Donation> allDonations = donationRepo.findAll();
-        Map<String, Double> donationMap = allDonations.stream()
-                .collect(Collectors.groupingBy(
-                        d -> d.getEvent().getName(),
-                        Collectors.summingDouble(d -> d.getAmount())));
-
-        for (Map.Entry<String, Double> e : donationMap.entrySet()) {
-            System.out.println("Key: " + e.getKey());
-            System.out.println("Value: " + e.getValue());
-        }
-
         var dashboard = new Dashboard();
         dashboard.setCurrentEvent(null);
         dashboard.setEventsCount(20);

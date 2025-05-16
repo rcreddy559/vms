@@ -2,10 +2,11 @@ package com.vms.service;
 
 import java.util.List;
 
+import com.vms.dto.DonationDto;
 import com.vms.model.Donation;
 
 public interface DonationService {
-    List<Donation> getAll();
+    List<DonationDto> getAll();
 
     Donation getById(Long id);
 

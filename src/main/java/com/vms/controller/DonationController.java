@@ -2,6 +2,7 @@ package com.vms.controller;
 
 import org.springframework.web.bind.annotation.*;
 
+import com.vms.dto.DonationDto;
 import com.vms.model.Donation;
 import com.vms.service.DonationService;
 
@@ -18,7 +19,7 @@ public class DonationController {
     }
 
     @GetMapping
-    public List<Donation> getAllDonations() {
+    public List<DonationDto> getAllDonations() {
         return donationService.getAll();
     }
 
