@@ -1,13 +1,9 @@
-package com.vms.model;
+package com.vms.dto;
 
-import jakarta.persistence.*;
 import java.time.LocalDate;
 
-@Entity
-public class Resident {
+public class ResidentDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
@@ -21,20 +17,6 @@ public class Resident {
     private String emailId;
 
     private String role;
-
-    public Resident(String address, LocalDate dateOfBirth, String emailId, Long id, String name, String phoneNumber,
-            String role) {
-        this.address = address;
-        this.dateOfBirth = dateOfBirth;
-        this.emailId = emailId;
-        this.id = id;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.role = role;
-    }
-
-    public Resident() {
-    }
 
     public Long getId() {
         return id;

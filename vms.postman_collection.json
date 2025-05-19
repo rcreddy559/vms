@@ -1,356 +1,368 @@
 {
-	"info": {
-		"_postman_id": "da8e83da-5166-47df-b894-da23d4a4f05e",
-		"name": "vma",
-		"description": "Postman collection for the Village Management System APIs.",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "5444737"
-	},
-	"item": [
-		{
-			"name": "Residents",
-			"item": [
-				{
-					"name": "Get All Residents",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/vms/api/v1/resident",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"vms",
-								"api",
-								"v1",
-								"resident"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All Residents By role",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/vms/api/v1/resident/role",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"vms",
-								"api",
-								"v1",
-								"resident",
-								"role"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get All Residents By role ID",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/vms/api/v1/resident/role/ADMIN",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"vms",
-								"api",
-								"v1",
-								"resident",
-								"role",
-								"ADMIN"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Add Resident",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"id\": 1,\n    \"name\": \"Amit Sharma\",\n    \"dateOfBirth\": \"1985-06-15\",\n    \"address\": \"123 Green Street\",\n    \"phoneNumber\": \"9876543210\",\n    \"emailId\": \"amit@example.com\",\n    \"role\": \"ADMIN\"\n}"
-						},
-						"url": {
-							"raw": "{{baseUrl}}/vms/api/v1/resident",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"vms",
-								"api",
-								"v1",
-								"resident"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Festivals",
-			"item": [
-				{
-					"name": "Get All Festivals",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/api/festivals",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"festivals"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Add Festival",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"name\": \"Harvest Festival\", \"date\": \"2023-10-01\"}"
-						},
-						"url": {
-							"raw": "{{baseUrl}}/api/festivals",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"festivals"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Donations",
-			"item": [
-				{
-					"name": "Get All Donations",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/vms/api/v1/donations",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"vms",
-								"api",
-								"v1",
-								"donations"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Add Donation",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"amount\": 199.0,\n    \"status\": \"COMPLETED\",\n    \"resident_id\": 2\n}"
-						},
-						"url": {
-							"raw": "{{baseUrl}}/vms/api/v1/donations",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"vms",
-								"api",
-								"v1",
-								"donations"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Functions",
-			"item": [
-				{
-					"name": "Get All Functions",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}/api/functions",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"functions"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Add Function",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"name\": \"Navratri Garba Night\",\n        \"description\": \"Traditional Garba dance during Navratri festival.\",\n        \"startDate\": \"2025-10-20\",\n        \"endDate\": \"2025-10-28\",\n        \"location\": \"Ahmedabad, Gujarat\",\n        \"organizer\": {\n            \"id\": 5,\n            \"firstName\": \"Venkat\",\n            \"phoneNumber\": \"9876543214\",\n            \"lastName\": \"Naidu\",\n            \"familyName\": \"Naidu Family\",\n            \"aadhar\": \"123456789016\",\n            \"emailId\": \"venkat.naidu@example.com\",\n            \"education\": \"B.Sc\",\n            \"role\": \"ADMIN\",\n            \"houseNumber\": \"105\",\n            \"address\": \"Kurnool, Andhra Pradesh\"\n        }\n    }"
-						},
-						"url": {
-							"raw": "{{baseUrl}}/api/functions",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"functions"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Expenditures",
-			"item": [
-				{
-					"name": "Get All Expenditures",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/api/expenditures",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"expenditures"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Add Expenditure",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"description\": \"Stage decoration for Independence Day\",\n        \"amount\": 7000.0,\n        \"date\": \"2025-08-10\",\n        \"resident\": {\n            \"id\": 1,\n            \"firstName\": \"Ravi\",\n            \"phoneNumber\": \"9876543210\",\n            \"lastName\": \"Kumar\",\n            \"familyName\": \"Kumar Family\",\n            \"aadhar\": \"123456789012\",\n            \"emailId\": \"ravi.kumar@example.com\",\n            \"education\": \"B.Tech\",\n            \"role\": \"ADMIN\",\n            \"houseNumber\": \"101\",\n            \"address\": \"Vijayawada, Andhra Pradesh\"\n        },\n        \"function\": {\n            \"id\": 1,\n            \"name\": \"Independence Day Celebration\",\n            \"description\": \"Celebration of Indias independence with flag hoisting and cultural programs.\",\n            \"startDate\": \"2025-08-15\",\n            \"endDate\": \"2025-08-15\",\n            \"location\": \"Red Fort, Delhi\",\n            \"organizer\": {\n                \"id\": 1,\n                \"firstName\": \"Ravi\",\n                \"phoneNumber\": \"9876543210\",\n                \"lastName\": \"Kumar\",\n                \"familyName\": \"Kumar Family\",\n                \"aadhar\": \"123456789012\",\n                \"emailId\": \"ravi.kumar@example.com\",\n                \"education\": \"B.Tech\",\n                \"role\": \"ADMIN\",\n                \"houseNumber\": \"101\",\n                \"address\": \"Vijayawada, Andhra Pradesh\"\n            }\n        }\n    }"
-						},
-						"url": {
-							"raw": "{{baseUrl}}/api/expenditures",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"expenditures"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "New Request",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{baseUrl}}/vms/api/v1/dashboard",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"vms",
-						"api",
-						"v1",
-						"dashboard"
-					]
-				}
-			},
-			"response": []
-		}
-	]
-}
+       "info": {
+        "_postman_id": "da8e83da-5166-47df-b894-da23d4a4f05e",
+        "name": "vms",
+        "description": "Postman collection for the Village Management System APIs.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "5444737"
+       },
+       "item": [
+        {
+         "name": "Residents",
+         "item": [
+          {
+           "name": "Get All Residents",
+           "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+             "raw": "{{baseUrl}}/vms/api/v1/resident",
+             "host": [
+              "{{baseUrl}}"
+             ],
+             "path": [
+              "vms",
+              "api",
+              "v1",
+              "resident"
+             ]
+            }
+           },
+           "response": []
+          },
+          {
+           "name": "Get All Residents By role",
+           "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+             "raw": "{{baseUrl}}/vms/api/v1/resident/role",
+             "host": [
+              "{{baseUrl}}"
+             ],
+             "path": [
+              "vms",
+              "api",
+              "v1",
+              "resident",
+              "role"
+             ]
+            }
+           },
+           "response": []
+          },
+          {
+           "name": "Get All Residents By role ID",
+           "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+             "raw": "{{baseUrl}}/vms/api/v1/resident/role/ADMIN",
+             "host": [
+              "{{baseUrl}}"
+             ],
+             "path": [
+              "vms",
+              "api",
+              "v1",
+              "resident",
+              "role",
+              "ADMIN"
+             ]
+            }
+           },
+           "response": []
+          },
+          {
+           "name": "Add Resident",
+           "request": {
+            "method": "POST",
+            "header": [
+             {
+              "key": "Content-Type",
+              "value": "application/json"
+             }
+            ],
+            "body": {
+             "mode": "raw",
+             "raw": "{\n    \"id\": 1,\n    \"name\": \"Amit Sharma\",\n    \"dateOfBirth\": \"1985-06-15\",\n    \"address\": \"123 Green Street\",\n    \"phoneNumber\": \"9876543210\",\n    \"emailId\": \"amit@example.com\",\n    \"role\": \"ADMIN\"\n}"
+            },
+            "url": {
+             "raw": "{{baseUrl}}/vms/api/v1/resident",
+             "host": [
+              "{{baseUrl}}"
+             ],
+             "path": [
+              "vms",
+              "api",
+              "v1",
+              "resident"
+             ]
+            }
+           },
+           "response": []
+          }
+         ]
+        },
+        {
+         "name": "Festivals",
+         "item": [
+          {
+           "name": "Get All Festivals",
+           "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+             "raw": "{{baseUrl}}/vms/api/v1/festivals",
+             "host": [
+              "{{baseUrl}}"
+             ],
+             "path": [
+              "vms",
+              "api",
+              "v1",
+              "festivals"
+             ]
+            }
+           },
+           "response": []
+          },
+          {
+           "name": "Add Festival",
+           "request": {
+            "method": "POST",
+            "header": [
+             {
+              "key": "Content-Type",
+              "value": "application/json"
+             }
+            ],
+            "body": {
+             "mode": "raw",
+             "raw": "{\"name\": \"Harvest Festival\", \"date\": \"2023-10-01\"}"
+            },
+            "url": {
+             "raw": "{{baseUrl}}/vms/api/v1/festivals",
+             "host": [
+              "{{baseUrl}}"
+             ],
+             "path": [
+              "vms",
+              "api",
+              "v1",
+              "festivals"
+             ]
+            }
+           },
+           "response": []
+          }
+         ]
+        },
+        {
+         "name": "Donations",
+         "item": [
+          {
+           "name": "Get All Donations",
+           "protocolProfileBehavior": {
+            "disableBodyPruning": true
+           },
+           "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+             "mode": "raw",
+             "raw": "",
+             "options": {
+              "raw": {
+               "language": "json"
+              }
+             }
+            },
+            "url": {
+             "raw": "{{baseUrl}}/vms/api/v1/donations",
+             "host": [
+              "{{baseUrl}}"
+             ],
+             "path": [
+              "vms",
+              "api",
+              "v1",
+              "donations"
+             ]
+            }
+           },
+           "response": []
+          },
+          {
+           "name": "Add Donation",
+           "request": {
+            "method": "POST",
+            "header": [
+             {
+              "key": "Content-Type",
+              "value": "application/json"
+             }
+            ],
+            "body": {
+             "mode": "raw",
+             "raw": "{\n    \"amount\": 199.0,\n    \"status\": \"COMPLETED\",\n    \"resident_id\": 2\n}"
+            },
+            "url": {
+             "raw": "{{baseUrl}}/vms/api/v1/donations",
+             "host": [
+              "{{baseUrl}}"
+             ],
+             "path": [
+              "vms",
+              "api",
+              "v1",
+              "donations"
+             ]
+            }
+           },
+           "response": []
+          }
+         ]
+        },
+        {
+         "name": "Functions",
+         "item": [
+          {
+           "name": "Get All Functions",
+           "protocolProfileBehavior": {
+            "disableBodyPruning": true
+           },
+           "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+             "mode": "raw",
+             "raw": "",
+             "options": {
+              "raw": {
+               "language": "json"
+              }
+             }
+            },
+            "url": {
+             "raw": "{{baseUrl}}/vms/api/v1/functions",
+             "host": [
+              "{{baseUrl}}"
+             ],
+             "path": [
+              "vms",
+              "api",
+              "v1",
+              "functions"
+             ]
+            }
+           },
+           "response": []
+          },
+          {
+           "name": "Add Function",
+           "request": {
+            "method": "POST",
+            "header": [
+             {
+              "key": "Content-Type",
+              "value": "application/json"
+             }
+            ],
+            "body": {
+             "mode": "raw",
+             "raw": "{\n        \"name\": \"Navratri Garba Night\",\n        \"description\": \"Traditional Garba dance during Navratri festival.\",\n        \"startDate\": \"2025-10-20\",\n        \"endDate\": \"2025-10-28\",\n        \"location\": \"Ahmedabad, Gujarat\",\n        \"organizer\": {\n            \"id\": 5,\n            \"firstName\": \"Venkat\",\n            \"phoneNumber\": \"9876543214\",\n            \"lastName\": \"Naidu\",\n            \"familyName\": \"Naidu Family\",\n            \"aadhar\": \"123456789016\",\n            \"emailId\": \"venkat.naidu@example.com\",\n            \"education\": \"B.Sc\",\n            \"role\": \"ADMIN\",\n            \"houseNumber\": \"105\",\n            \"address\": \"Kurnool, Andhra Pradesh\"\n        }\n    }"
+            },
+            "url": {
+             "raw": "{{baseUrl}}/vms/api/v1/functions",
+             "host": [
+              "{{baseUrl}}"
+             ],
+             "path": [
+              "vms",
+              "api",
+              "v1",
+              "functions"
+             ]
+            }
+           },
+           "response": []
+          }
+         ]
+        },
+        {
+         "name": "Expenditures",
+         "item": [
+          {
+           "name": "Get All Expenditures",
+           "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+             "raw": "{{baseUrl}}/vms/api/v1/expenditures",
+             "host": [
+              "{{baseUrl}}"
+             ],
+             "path": [
+              "vms",
+              "api",
+              "v1",
+              "expenditures"
+             ]
+            }
+           },
+           "response": []
+          },
+          {
+           "name": "Add Expenditure",
+           "request": {
+            "method": "POST",
+            "header": [
+             {
+              "key": "Content-Type",
+              "value": "application/json"
+             }
+            ],
+            "body": {
+             "mode": "raw",
+             "raw": "{\n        \"description\": \"Stage decoration for Independence Day\",\n        \"amount\": 7000.0,\n        \"date\": \"2025-08-10\",\n        \"resident\": {\n            \"id\": 1,\n            \"firstName\": \"Ravi\",\n            \"phoneNumber\": \"9876543210\",\n            \"lastName\": \"Kumar\",\n            \"familyName\": \"Kumar Family\",\n            \"aadhar\": \"123456789012\",\n            \"emailId\": \"ravi.kumar@example.com\",\n            \"education\": \"B.Tech\",\n            \"role\": \"ADMIN\",\n            \"houseNumber\": \"101\",\n            \"address\": \"Vijayawada, Andhra Pradesh\"\n        },\n        \"function\": {\n            \"id\": 1,\n            \"name\": \"Independence Day Celebration\",\n            \"description\": \"Celebration of Indias independence with flag hoisting and cultural programs.\",\n            \"startDate\": \"2025-08-15\",\n            \"endDate\": \"2025-08-15\",\n            \"location\": \"Red Fort, Delhi\",\n            \"organizer\": {\n                \"id\": 1,\n                \"firstName\": \"Ravi\",\n                \"phoneNumber\": \"9876543210\",\n                \"lastName\": \"Kumar\",\n                \"familyName\": \"Kumar Family\",\n                \"aadhar\": \"123456789012\",\n                \"emailId\": \"ravi.kumar@example.com\",\n                \"education\": \"B.Tech\",\n                \"role\": \"ADMIN\",\n                \"houseNumber\": \"101\",\n                \"address\": \"Vijayawada, Andhra Pradesh\"\n            }\n        }\n    }"
+            },
+            "url": {
+             "raw": "{{baseUrl}}/vms/api/v1/expenditures",
+             "host": [
+              "{{baseUrl}}"
+             ],
+             "path": [
+              "vms",
+              "api",
+              "v1",
+              "expenditures"
+             ]
+            }
+           },
+           "response": []
+          }
+         ]
+        },
+        {
+         "name": "New Request",
+         "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+           "raw": "{{baseUrl}}/vms/api/v1/dashboard",
+           "host": [
+            "{{baseUrl}}"
+           ],
+           "path": [
+            "vms",
+            "api",
+            "v1",
+            "dashboard"
+           ]
+          }
+         },
+         "response": []
+        }
+       ]
+      }

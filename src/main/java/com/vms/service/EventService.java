@@ -2,18 +2,17 @@ package com.vms.service;
 
 import java.util.List;
 
-import com.vms.model.Event;
+import com.vms.dto.EventDto;
 
 public interface EventService {
-    List<Event> getAll();
+    List<EventDto> getAll();
 
-    Event getById(Long id);
+    EventDto getById(Long id);
 
-    Event create(Event event);
+    EventDto create(EventDto event);
 
-    Event update(Long id, Event event);
+    EventDto update(Long id, EventDto event);
 
     void delete(Long id);
 
-    Event partialUpdate(Long id, Event event);
 }

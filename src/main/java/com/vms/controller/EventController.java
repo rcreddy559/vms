@@ -1,14 +1,12 @@
 package com.vms.controller;
 
+import com.vms.dto.EventDto;
 import org.springframework.web.bind.annotation.*;
-
-import com.vms.model.Event;
 import com.vms.service.EventService;
-
 import java.util.List;
 
 @RestController
-@RequestMapping("/vms/api/v1/events")
+@RequestMapping("/vms/api/v1/event")
 public class EventController {
 
     private final EventService eventService;
@@ -18,22 +16,22 @@ public class EventController {
     }
 
     @GetMapping
-    public List<Event> getAllEvents() {
+    public List<EventDto> getAllEvents() {
         return eventService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Event getEventById(@PathVariable Long id) {
+    public EventDto getEventById(@PathVariable Long id) {
         return eventService.getById(id);
     }
 
     @PostMapping
-    public Event createEvent(@RequestBody Event event) {
+    public EventDto createEvent(@RequestBody EventDto event) {
         return eventService.create(event);
     }
 
     @PutMapping("/{id}")
-    public Event updateEvent(@PathVariable Long id, @RequestBody Event event) {
+    public EventDto updateEvent(@PathVariable Long id, @RequestBody EventDto event) {
         return eventService.update(id, event);
     }
 

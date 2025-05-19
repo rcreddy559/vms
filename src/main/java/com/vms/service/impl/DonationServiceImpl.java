@@ -14,7 +14,7 @@ import java.util.List;
 public class DonationServiceImpl implements DonationService {
 
     private final DonationRepository repository;
-    private final  ModelMapper modelMapper;
+    private final ModelMapper modelMapper;
 
     public DonationServiceImpl(DonationRepository repository,  ModelMapper modelMapper) {
         this.modelMapper = modelMapper;

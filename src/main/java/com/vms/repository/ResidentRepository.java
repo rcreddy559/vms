@@ -13,4 +13,8 @@ public interface ResidentRepository extends JpaRepository<Resident, Long> {
     List<Resident> findByRole(String role);
 
     Optional<Resident> findByPhoneNumber(String phoneNumber);
+
+    default void validatePhoneNumber(String phoneNumber) {
+        findByPhoneNumber(phoneNumber).orElseThrow(() -> new IllegalArgumentException("Invalid phone number"));
+    }
 }

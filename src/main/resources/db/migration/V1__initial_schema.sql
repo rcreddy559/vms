@@ -1,6 +1,6 @@
 -- Table: Resident
 CREATE TABLE resident (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    id BIGINT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     date_of_birth DATE NOT NULL,
     address VARCHAR(255),
@@ -9,29 +9,10 @@ CREATE TABLE resident (
     role VARCHAR(100) NOT NULL
 );
 
--- Table: Event
-CREATE TABLE event (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100) NOT NULL,
-    location VARCHAR(150),
-    date DATE NOT NULL
-);
-
--- Table: Donation
-CREATE TABLE donation (
-    id BIGINT PRIMARY KEY AUTO_INCREMENT,
-    resident_id BIGINT,
-    created_by_id BIGINT,
-    event_id BIGINT,
-    amount DECIMAL(10, 2) NOT NULL,
-    status VARCHAR(20),
-    CONSTRAINT fk_donation_resident FOREIGN KEY (resident_id) REFERENCES resident(id),
-    CONSTRAINT fk_donation_event FOREIGN KEY (event_id) REFERENCES event(id)
-);
-
+CREATE SEQUENCE seq_resident_id START WITH 66 INCREMENT BY 1;
 
 -- Residents
-INSERT INTO resident (id, name, date_of_birth, address, phone_number, email_id, role) VALUES
+    INSERT INTO resident (id, name, date_of_birth, address, phone_number, email_id, role) VALUES
 (1, 'Amit Sharma', '1985-06-15', '123 Green Street', '9876543210', 'amit@example.com', 'ADMIN'),
 (2, 'Priya Mehta', '1990-02-10', '456 Lakeview Road', '9123456780', 'priya@example.com', 'RESIDENT'),
 (3, 'Rahul Verma', '1978-11-23', '789 Hilltop Ave', '9012345678', 'rahul@example.com', 'RESIDENT'),
@@ -96,38 +77,3 @@ INSERT INTO resident (id, name, date_of_birth, address, phone_number, email_id, 
 (62, 'Nandini Hegde', '1986-07-29', '210 Valley Road', '9210987648', 'nandini@example.com', 'RESIDENT'),
 (63, 'Raghav Luthra', '1991-01-06', '543 Hill Avenue', '9109876547', 'raghav@example.com', 'RESIDENT'),
 (64, 'Leela Subramanian', '1978-10-18', '876 Crest Lane', '9098765436', 'leela@example.com', 'RESIDENT');
--- Events
-INSERT INTO event (id, name, location, date) VALUES
-(1, 'Village Clean-Up', 'Community Park', '2025-04-20'),
-(2, 'Tree Plantation Drive', 'Village Square', '2025-05-05'),
-(3, 'Health Camp', 'Community Hall', '2025-06-15'),
-(4, 'Cultural Fest', 'Village Grounds', '2025-07-10'),
-(5, 'Sports Day', 'Village Stadium', '2025-08-25'),
-(6, 'Blood Donation Camp', 'Community Center', '2025-09-30'),
-(7, 'Diwali Mela', 'Village Market', '2025-10-15'),
-(8, 'New Year Celebration', 'Village Square', '2025-12-31'),
-(9, 'Yoga Workshop', 'Community Hall', '2025-11-20'),
-(10, 'Winter Carnival', 'Village Grounds', '2025-12-25');
-
--- Donations
-INSERT INTO donation (id, resident_id, event_id, amount, status) VALUES
-(1, 2,1, 500.00, 'COMPLETED'),
-(2, 3, 2, 300.00, 'COMPLETED'),
-(3, 4, 3, 700.00, 'COMPLETED'),
-(4, 5, 4, 200.00, 'COMPLETED'),
-(5, 6, 5, 1000.00, 'COMPLETED'),
-(6, 7, 6, 1500.00, 'COMPLETED'),
-(7, 8, 7, 800.00, 'COMPLETED'),
-(8, 9, 8, 600.00, 'COMPLETED'),
-(9, 10, 9, 400.00, 'COMPLETED'),
-(10,11 ,10 ,900.00,'COMPLETED'),
-(11, 12, 1, 1200.00, 'COMPLETED'),
-(12, 13, 2, 1100.00, 'COMPLETED'),
-(13, 14, 3, 1300.00, 'COMPLETED'),
-(14, 15, 4, 1400.00, 'COMPLETED'),
-(15, 16, 5, 1500.00, 'COMPLETED'),
-(16, 17, 6, 1600.00, 'COMPLETED'),
-(17, 18, 7, 1700.00, 'COMPLETED'),
-(18, 19, 8, 1800.00, 'COMPLETED'),
-(19,20 ,9 ,1900.00,'COMPLETED'),
-(20 ,21 ,10 ,2000.00,'COMPLETED');

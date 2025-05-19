@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vms.service.ResidentService;
 
 @RestController
-@RequestMapping("/api/v1/login")
+@RequestMapping("/vms/api/v1/login")
 public class LoginController {
 
     ResidentService residentService;

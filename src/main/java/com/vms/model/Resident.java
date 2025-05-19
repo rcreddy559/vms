@@ -7,7 +7,9 @@ import java.time.LocalDate;
 public class Resident {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_resident_id")
+    @SequenceGenerator(name = "seq_resident_id", sequenceName = "seq_resident_id", allocationSize = 1)
+    @Column(name = "id")
     private Long id;
 
     private String name;
@@ -21,20 +23,6 @@ public class Resident {
     private String emailId;
 
     private String role;
-
-    public Resident(String address, LocalDate dateOfBirth, String emailId, Long id, String name, String phoneNumber,
-            String role) {
-        this.address = address;
-        this.dateOfBirth = dateOfBirth;
-        this.emailId = emailId;
-        this.id = id;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-        this.role = role;
-    }
-
-    public Resident() {
-    }
 
     public Long getId() {
         return id;

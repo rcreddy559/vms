@@ -1,11 +1,12 @@
 package com.vms.service.impl;
 
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.stereotype.Service;
-
+import com.vms.dto.EventDto;
 import com.vms.model.Event;
 import com.vms.repository.EventRepository;
 import com.vms.service.EventService;
+import org.modelmapper.ModelMapper;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,34 +14,43 @@ import java.util.List;
 public class EventServiceImpl implements EventService {
 
     private final EventRepository repository;
+    private final ModelMapper modelMapper;
 
-    public EventServiceImpl(EventRepository repository) {
+    public EventServiceImpl(EventRepository repository, ModelMapper modelMapper) {
         this.repository = repository;
+        this.modelMapper = modelMapper;
     }
 
     @Override
     @Cacheable("events")
-    public List<Event> getAll() {
-        return repository.findAll();
+    public List<EventDto> getAll() {
+        var events = repository.findAll();
+        return events.stream().map(e -> modelMapper.map(e, EventDto.class)).toList();
     }
 
     @Override
-    public Event getById(Long id) {
-        return repository.findById(id).orElseThrow();
+    public EventDto getById(Long id) {
+        Event event = repository.findById(id).orElseThrow();
+        return modelMapper.map(event, EventDto.class);
     }
 
     @Override
-    public Event create(Event event) {
-        return repository.save(event);
+    public EventDto create(EventDto eventDto) {
+        Event event = modelMapper.map(eventDto, Event.class);
+        Event savedEvent = repository.save(event);
+        return modelMapper.map(savedEvent, EventDto.class);
     }
 
     @Override
-    public Event update(Long id, Event updated) {
-        Event event = getById(id);
+    public EventDto update(Long id, EventDto updated) {
+        Event event = repository.findById(id).orElseThrow();
         event.setName(updated.getName());
         event.setLocation(updated.getLocation());
-        event.setDate(updated.getDate());
-        return repository.save(event);
+        event.setStartDate(updated.getStartDate());
+        event.setEndDate(updated.getEndDate());
+
+        Event savedEvent = repository.save(event);
+        return modelMapper.map(savedEvent, EventDto.class);
     }
 
     @Override
@@ -48,8 +58,5 @@ public class EventServiceImpl implements EventService {
         repository.deleteById(id);
     }
 
-    @Override
-    public Event partialUpdate(Long id, Event event) {
-        return  event;
-    }
+
 }

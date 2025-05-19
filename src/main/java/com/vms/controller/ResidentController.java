@@ -1,9 +1,8 @@
 package com.vms.controller;
 
-import org.springframework.web.bind.annotation.*;
-
-import com.vms.model.Resident;
+import com.vms.dto.ResidentDto;
 import com.vms.service.ResidentService;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -19,33 +18,33 @@ public class ResidentController {
     private final ResidentService residentService;
 
     @GetMapping
-    public List<Resident> getAllResidents() {
+    public List<ResidentDto> getAllResidents() {
         return residentService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Resident getResidentById(@PathVariable Long id) {
+    public ResidentDto getResidentById(@PathVariable Long id) {
         return residentService.getById(id);
     }
 
     @GetMapping("/role")
-    public Map<String, List<Resident>> getByRole() {
+    public Map<String, List<ResidentDto>> getByRole() {
         return residentService.getByRole();
     }
 
     @GetMapping("/role/{role}")
-    public Map<String, List<Resident>> getByRole(@PathVariable String role) {
+    public Map<String, List<ResidentDto>> getByRole(@PathVariable String role) {
 
         return residentService.getByRole(role);
     }
 
     @PostMapping
-    public Resident createResident(@RequestBody Resident resident) {
+    public ResidentDto createResident(@RequestBody ResidentDto resident) {
         return residentService.create(resident);
     }
 
     @PutMapping("/{id}")
-    public Resident updateResident(@PathVariable Long id, @RequestBody Resident resident) {
+    public ResidentDto updateResident(@PathVariable Long id, @RequestBody ResidentDto resident) {
         return residentService.update(id, resident);
     }
 

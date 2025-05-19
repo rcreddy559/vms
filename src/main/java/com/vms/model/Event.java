@@ -13,7 +13,8 @@ public class Event {
 
     private String location;
 
-    private LocalDate date;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
     public Event() {
     }
@@ -43,12 +44,17 @@ public class Event {
         this.location = location;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getStartDate() {
+        return startDate;
     }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
     }
     
 }

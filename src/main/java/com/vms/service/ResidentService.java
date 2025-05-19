@@ -1,25 +1,26 @@
 package com.vms.service;
 
+import com.vms.dto.ResidentDto;
+
 import java.util.List;
 import java.util.Map;
 
-import com.vms.model.Resident;
 
 public interface ResidentService {
 
-    List<Resident> getAll();
+    List<ResidentDto> getAll();
 
-    Resident getById(Long id);
+    ResidentDto getById(Long id);
 
-    Resident create(Resident resident);
+    ResidentDto create(ResidentDto resident);
 
-    Resident update(Long id, Resident resident);
+    ResidentDto update(Long id, ResidentDto resident);
 
     void delete(Long id);
 
-    Map<String, List<Resident>> getByRole();
+    Map<String, List<ResidentDto>> getByRole();
 
-    Map<String, List<Resident>> getByRole(String role);
+    Map<String, List<ResidentDto>> getByRole(String role);
 
     void validatePhoneNumber(String phoneNumber);
 }
