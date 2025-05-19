@@ -1,18 +1,13 @@
 package com.vms.dto;
 
 import com.vms.model.DonationStatus;
-import com.vms.model.Event;
-import com.vms.model.Resident;
 
 public class DonationDto {
     private Long id;
-
-    private Resident resident;
-
+    private Long residentId;
     private double amount;
-
     private DonationStatus status;
-    private Event event;
+    private Long eventId;
 
 
     public Long getId() {
@@ -21,14 +16,6 @@ public class DonationDto {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Resident getResident() {
-        return resident;
-    }
-
-    public void setResident(Resident resident) {
-        this.resident = resident;
     }
 
     public double getAmount() {
@@ -47,14 +34,18 @@ public class DonationDto {
         this.status = status;
     }
 
-    public Event getEvent() {
-        return event;
+    public Long getResidentId() {
+        return residentId;
     }
 
-    public void setEvent(Event event) {
-        this.event = event;
+    public void setResidentId(Long residentId) {
+        this.residentId = residentId;
     }
 
-    
-
+    public Long getEventId() {
+        return eventId;
+    }
+    public void setEventId(Long eventId) {
+        this.eventId = eventId;
+    }
 }

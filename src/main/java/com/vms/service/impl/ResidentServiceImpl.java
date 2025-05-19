@@ -66,4 +66,9 @@ public class ResidentServiceImpl implements ResidentService {
         byRole.put(role, repository.findByRole(role));
         return byRole;
     }
+
+    @Override
+    public void validatePhoneNumber(String phoneNumber) {
+        this.repository.findByPhoneNumber(phoneNumber);
+    }
 }

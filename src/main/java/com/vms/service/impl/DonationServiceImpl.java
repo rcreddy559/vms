@@ -43,7 +43,6 @@ public class DonationServiceImpl implements DonationService {
         Donation donation = getById(id);
         donation.setAmount(updated.getAmount());
         donation.setStatus(updated.getStatus());
-        donation.setResident(updated.getResident());
         return repository.save(donation);
     }
 

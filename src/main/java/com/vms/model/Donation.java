@@ -7,23 +7,12 @@ public class Donation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "resident_id")
-    private Resident resident;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "event_id")
-    private Event event;
-
+    private Long residentId;
+    private Long eventId;
     private double amount;
 
     @Enumerated(EnumType.STRING)
     private DonationStatus status;
-
-
-    public Donation() {
-    }
 
     public Long getId() {
         return id;
@@ -31,14 +20,6 @@ public class Donation {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Resident getResident() {
-        return resident;
-    }
-
-    public void setResident(Resident resident) {
-        this.resident = resident;
     }
 
     public double getAmount() {
@@ -57,14 +38,16 @@ public class Donation {
         this.status = status;
     }
 
-    public Event getEvent() {
-        return event;
+    public Long getResidentId() {
+        return residentId;
     }
-
-    public void setEvent(Event event) {
-        this.event = event;
+    public void setResidentId(Long residentId) {
+        this.residentId = residentId;
     }
-
-    
-
+    public Long getEventId() {
+        return eventId;
+    }
+    public void setEventId(Long eventId) {
+        this.eventId = eventId;
+    }
 }

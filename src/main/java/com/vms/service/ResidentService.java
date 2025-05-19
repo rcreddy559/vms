@@ -20,4 +20,6 @@ public interface ResidentService {
     Map<String, List<Resident>> getByRole();
 
     Map<String, List<Resident>> getByRole(String role);
+
+    void validatePhoneNumber(String phoneNumber);
 }
