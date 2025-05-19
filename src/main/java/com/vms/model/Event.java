@@ -6,7 +6,9 @@ import java.time.LocalDate;
 @Entity
 public class Event {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "seq_resident_id")
+    @SequenceGenerator(name = "seq_resident_id", sequenceName = "seq_resident_id", allocationSize = 1)
+    @Column(name = "id")
     private Long id;
 
     private String name;
@@ -16,10 +18,6 @@ public class Event {
     private LocalDate startDate;
     private LocalDate endDate;
 
-    public Event() {
-    }
-
-    
     public Long getId() {
         return id;
     }

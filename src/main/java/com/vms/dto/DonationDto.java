@@ -8,7 +8,7 @@ public class DonationDto {
     private double amount;
     private DonationStatus status;
     private Long eventId;
-
+    private double createdById;
 
     public Long getId() {
         return id;
@@ -47,5 +47,11 @@ public class DonationDto {
     }
     public void setEventId(Long eventId) {
         this.eventId = eventId;
+    }
+    public double getCreatedById() {
+        return createdById;
+    }
+    public void setCreatedById(double createdById) {
+        this.createdById = createdById;
     }
 }

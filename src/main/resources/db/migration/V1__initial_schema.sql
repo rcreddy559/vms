@@ -9,6 +9,26 @@ CREATE TABLE resident (
     role VARCHAR(100) NOT NULL
 );
 
+
+-- Table: Event
+CREATE TABLE event (
+   id BIGINT PRIMARY KEY ,
+   name VARCHAR(100) NOT NULL,
+   location VARCHAR(150),
+   start_date DATE NOT NULL,
+   end_date DATE NOT NULL
+);
+
+-- Table: Donation
+CREATE TABLE donation (
+  id BIGINT PRIMARY KEY NOT NULL,
+  resident_id BIGINT NOT NULL,
+  created_by_id BIGINT NOT NULL,
+  event_id BIGINT NOT NULL,
+  amount DECIMAL(10, 2) NOT NULL,
+  status VARCHAR(20)
+);
+
 CREATE SEQUENCE seq_resident_id START WITH 66 INCREMENT BY 1;
 
 -- Residents
@@ -77,3 +97,31 @@ CREATE SEQUENCE seq_resident_id START WITH 66 INCREMENT BY 1;
 (62, 'Nandini Hegde', '1986-07-29', '210 Valley Road', '9210987648', 'nandini@example.com', 'RESIDENT'),
 (63, 'Raghav Luthra', '1991-01-06', '543 Hill Avenue', '9109876547', 'raghav@example.com', 'RESIDENT'),
 (64, 'Leela Subramanian', '1978-10-18', '876 Crest Lane', '9098765436', 'leela@example.com', 'RESIDENT');
+
+
+
+-- Events
+INSERT INTO event (id, name, location, start_date, end_date) VALUES
+(1, 'Village Clean-Up', 'Community Park', '2025-04-20', '2025-04-21'),
+(2, 'Tree Plantation Drive', 'Village Square', '2025-05-05', '2025-05-06'),
+(3, 'Health Camp', 'Community Hall', '2025-06-15', '2025-06-16'),
+(4, 'Cultural Fest', 'Village Grounds', '2025-07-10', '2025-07-11'),
+(5, 'Sports Day', 'Village Stadium', '2025-08-25', '2025-08-26'),
+(6, 'Blood Donation Camp', 'Community Center', '2025-09-30', '2025-10-01'),
+(7, 'Diwali Mela', 'Village Market', '2025-10-15', '2025-10-16'),
+(8, 'New Year Celebration', 'Village Square', '2025-12-31', '2026-01-01'),
+(9, 'Yoga Workshop', 'Community Hall', '2025-11-20', '2025-11-21'),
+(10, 'Winter Carnival', 'Village Grounds', '2025-12-25', '2025-12-26');
+
+-- Sample Donations
+INSERT INTO donation (id, resident_id, created_by_id, event_id, amount, status) VALUES
+(1, 2, 1, 1, 500.00, 'COMPLETED'),
+(2, 3, 1, 2, 1000.00, 'PENDING'),
+(3, 4, 6, 3, 750.00, 'COMPLETED'),
+(4, 5, 6, 4, 1200.00, 'COMPLETED'),
+(5, 7, 12, 5, 300.00, 'PENDING'),
+(6, 8, 12, 6, 450.00, 'COMPLETED'),
+(7, 9, 22, 7, 600.00, 'COMPLETED'),
+(8, 10, 22, 8, 800.00, 'PENDING'),
+(9, 11, 36, 9, 950.00, 'COMPLETED'),
+(10, 13, 36, 10, 1100.00, 'COMPLETED');
