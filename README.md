@@ -32,5 +32,6 @@ A Spring Boot-based microservice for managing village data, including Residents,
 ## Postman  Collection
 Import vma.postman_collection.json  into  postman app
 
+---
 ## 📂 Project Structure
 
