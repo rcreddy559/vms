@@ -1,0 +1,22 @@
+meta {
+  name: Add Resident
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{http}}{{baseUrl}}/vms/api/v1/resident
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Amit Sharma",
+    "dateOfBirth": "1985-06-15",
+    "address": "123 Green Street",
+    "phoneNumber": "9876543210",
+    "emailId": "amit@example.com",
+    "role": "ADMIN"
+  }
+}

@@ -1,0 +1,11 @@
+meta {
+  name: Get All Donations
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{http}}{{baseUrl}}/vms/api/v1/donations
+  body: none
+  auth: inherit
+}

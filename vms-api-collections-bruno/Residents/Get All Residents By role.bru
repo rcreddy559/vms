@@ -1,0 +1,11 @@
+meta {
+  name: Get All Residents By role
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{http}}{{baseUrl}}/vms/api/v1/resident/role
+  body: none
+  auth: inherit
+}

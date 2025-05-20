@@ -1,0 +1,21 @@
+meta {
+  name: Add Donation
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{http}}{{baseUrl}}/vms/api/v1/donations
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "residentId": 2,
+    "amount": 500,
+    "status": "COMPLETED",
+    "eventId": 1,
+    "createdById": 1
+  }
+}
