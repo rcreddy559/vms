@@ -39,7 +39,8 @@ public class DonationController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteDonation(@PathVariable Long id) {
+    public void deleteDonation(@PathVariable Long id)
+    {
         donationService.delete(id);
     }
 }
